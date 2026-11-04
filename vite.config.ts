@@ -11,6 +11,10 @@ export default defineConfig(() => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    envPrefix: ['VITE_', 'MODIRIAT_'],
+    define: {
+      'import.meta.env.MODIRIAT_ADMIN': JSON.stringify(process.env.MODIRIAT_ADMIN || process.env.VITE_MODIRIAT_ADMIN || ''),
+    },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       // Do not modify—file watching is disabled to prevent flickering during agent edits.
